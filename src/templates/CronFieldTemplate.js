@@ -4,10 +4,10 @@ export function CronFieldTemplateGenerator(objLang) {
     <div style="display: flex; height: 138px;">
         <div class="panel panel-default" style="margin-right: 2.5px; width: 50%; height: 132px;">
             <div class="panel-heading">
-                <div style="display: flex;">
+                <label style="display: flex;">
                     <input class="propagationClass form-check-input" type="radio" name="choice" value="1" match="choice" checked>
-                    <span style="margin-left: 10px;">${objLang.frequencyChoice}</span>
-                </div>
+                    <span style="margin-left: 10px">${objLang.frequencyChoice}</span>
+                </label>
             </div>
             <div class="panel-body" style="display: flex;">
                 <div class="propagationClass form-group" style="margin-right: 5px; width: 50%;">
@@ -26,10 +26,10 @@ export function CronFieldTemplateGenerator(objLang) {
         </div>
         <div class="panel panel-default" style="margin-left: 2.5px; width: 50%; height: 132px;">
             <div class="panel-heading">
-                <div style="display: flex;">
+                <label style="display: flex;">
                     <input class="propagationClass form-check-input" type="radio" name="choice" value="2" match="choice">
                     <span style="margin-left: 10px;">${objLang.rangeChoice}</span>
-                </div>
+                </label>
             </div>
             <div class="panel-body">
                 <div class="form-group">
@@ -51,10 +51,10 @@ export function CronFieldTemplateGenerator(objLang) {
     </div>
     <div class="panel panel-default" style="margin: 0px; padding: 0px; height: 214px;">
         <div class="panel-heading">
-            <div style="display: flex;">
+            <label style="display: flex;">
                 <input class="propagationClass form-check-input" type="radio" name="choice" value="3" match="choice">
                 <span style="margin-left: 10px;">${objLang.choice}</span>
-            </div>
+            </label>
         </div>
         <div class="panel-body" style="padding-top: 6px;">
             <div match="specific" class="form-group" style="display: flex; flex-wrap: wrap; margin: 0px; padding: 0px;">
