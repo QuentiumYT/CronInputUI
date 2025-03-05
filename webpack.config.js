@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 
 const entryPoints = {
@@ -66,6 +67,17 @@ export default [{
         include: /\.min\.js$/,
         extractComments: false,
       }),
+      new CssMinimizerPlugin({
+        include: /\.min\.css$/,
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
+        },
+      }),
     ],
   },
   performance: {
@@ -77,9 +89,7 @@ export default [{
       template: './src/index.html',
       chunks: ['cron-input-ui'],
     }),
-    new MiniCssExtractPlugin({
-      filename: './cron-input-ui.css',
-    }),
+    new MiniCssExtractPlugin(),
   ],
 },
 {
