@@ -6,6 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CronInputUI Demo</title>
+    <style type="text/css">
+    cron-input-ui * {
+        font-size: 16px;
+        line-height: 20px;
+        color: #000;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    </style>
 </head>
 
 <body>
@@ -20,6 +28,19 @@
                        name="expr" value="* * * * *">
         </cron-input-ui>
         <input type="submit" value="Envoyer le formulaire" style="margin-top: 20px;" />
+
+        <p>You can style your component further by targeting the elements with CSS; ie:
+        <code>
+        <pre>
+cron-input-ui * {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+}
+        </pre>
+        </code>
+        </p>
     </form>
 
     <script src="dist/locales/fr.js"></script>
