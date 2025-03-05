@@ -74,7 +74,7 @@ cron-input-ui .form-group-half {
 }
 
 cron-input-ui .form-check-label {
-    font-size: 14px;
+    font-size: smaller;
 }
 
 cron-input-ui .form-control {
@@ -83,7 +83,7 @@ cron-input-ui .form-control {
     height: 34px;
     padding: 6px 12px;
     margin-top: 10px;
-    font-size: 14px;
+    font-size: smaller;
     color: #555;
     background-color: #fff;
     background-image: none;
@@ -117,7 +117,7 @@ cron-input-ui .btn {
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
-    font-size: 14px;
+    font-size: smaller;
     font-weight: 400;
     line-height: 0;
     text-align: center;
@@ -297,7 +297,7 @@ cron-input-ui .panel-body {
 
 cron-input-ui .top-action {
     float: right;
-    font-size: 20px;
+    font-size: xx-large;
     font-weight: 700;
     line-height: 1;
 }
