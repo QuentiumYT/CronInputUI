@@ -30,6 +30,7 @@ export class CronExpressionInput extends CronComponent {
         this.colorMain = '#' + this.color.replace('#', '');
         this.colorSecond = this.increaseBrightness(this.colorMain, 30);
         this.id = this.name + '_' + Math.random().toString(16).substr(2);
+        this.title = "";
 
         // Force attribute without hashtag for specific CSS
         this.setAttribute('id', this.id);
@@ -257,13 +258,17 @@ export class CronExpressionInput extends CronComponent {
         var input3 = this.getElement('.cronInsideInput');
         input3.value = value;
 
+        var humanString = humanize(value);
+        this.querySelector('.inputCronMsg').value = humanString;
+        this.title = humanString;
+        this.sendEvent();
+    }
+    humanize(value) {
         var cronstrueLang = 'en';
         if (Object.keys(cronstrue.default.locales).includes(inputLangInternal.code)) {
             cronstrueLang = inputLangInternal.code;
         }
-
-        this.querySelector('.inputCronMsg').value = cronstrue.toString(value, { locale: cronstrueLang });
-        this.sendEvent();
+        return cronstrue.toString(value, { locale: cronstrueLang });
     }
     modalToggle() {
         this.getElement('.modal').classList.toggle('show');
