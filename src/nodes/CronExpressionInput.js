@@ -260,7 +260,7 @@ export class CronExpressionInput extends CronComponent {
 
         var humanString = this.humanize(value);
         this.querySelector('.inputCronMsg').value = humanString;
-        this.querySelector('.cronInsideInput').setAttribute("title", humanString); // TODO: Is this precise enough if multiple .cronInsideInput on the page?
+        this.querySelector('.cronInsideInput').setAttribute("title", humanString);
         this.sendEvent();
     }
     humanize(value) {
