@@ -484,3 +484,9 @@ cron-input-ui .container .checkmark:after {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+cron-input-ui .panel-body[data-focused="false"] {
+    display: none;
+}
+cron-input-ui .panel-body[data-focused="true"] {
+}

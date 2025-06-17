@@ -131,13 +131,33 @@ export class CronExpressionInput extends CronComponent {
             }
         });
 
-        this.getElements('.propagationClass').forEach((element) =>
-            element.addEventListener('input', (e) => e.stopPropagation())
-        );
+        this.getElements('.propagationClass').forEach(function (element) {
+            element.addEventListener('input', (e) => e.stopPropagation());
+        });
 
         if (self.hotValidate) {
             this.validator(self);
         }
+
+        // Track the selected panel-body
+        this.getElements('.form-check-input').forEach(function (element) {
+            element.onchange = function(e) {
+                var checked = element.checked;
+                if (!checked) {
+                    return;
+                }
+                var form = element.closest('.panel-form');
+                form.querySelectorAll('.panel-body').forEach(function (panel) {
+                    panel.dataset.focused = false;
+                });
+                var closestPanel = element.closest('.panel').querySelector('.panel-body');
+                console.log(element.closest('.panel').querySelector('.panel-body'));
+                if (closestPanel) {
+                    closestPanel.dataset.focused = true;
+                }
+            }
+            // element.onchange();
+        });
     }
     validator(self) {
         var insideInput = self.querySelector('.cronInsideInput');
@@ -214,6 +234,9 @@ export class CronExpressionInput extends CronComponent {
         var choices = form.querySelectorAll('input[name=choice]');
         choices.forEach((choice) => choice.removeAttribute('checked'));
         choices[type - 1].checked = true;
+        choices[type - 1].onchange();
+
+
         switch (type) {
             case 1:
                 var freq = this.getTypeFrequency(value);
