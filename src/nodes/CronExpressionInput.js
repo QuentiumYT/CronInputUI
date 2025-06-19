@@ -86,7 +86,7 @@ export class CronExpressionInput extends CronComponent {
         });
         this.addEvent('li > a', 'click', (scope) => {
             var index = 0;
-            self.getElements('li > a').forEach(function (elem, i) {
+            self.getElements('li > a').forEach((elem, i) => {
                 elem.parentNode.setAttribute('class', 'nav-item');
                 if (elem == scope) {
                     index = i;
@@ -118,20 +118,16 @@ export class CronExpressionInput extends CronComponent {
                 }
             }
 
-            self.setValue(
-                self.generateCron(
-                    parseInt(node.getAttribute('pos')),
-                    self.getElement('.cronInsideInput').value,
-                    node.value
-                )
-            );
+            var nodePos = parseInt(node.getAttribute('pos'));
+            var cronValue = self.generateCron(nodePos, self.getElement('.cronInsideInput').value, node.value);
+            self.setValue(cronValue);
 
             if (self.hotValidate) {
                 self.validator(self);
             }
         });
 
-        this.getElements('.propagationClass').forEach(function (element) {
+        this.getElements('.propagationClass').forEach((element) => {
             element.addEventListener('input', (e) => e.stopPropagation());
         });
 
@@ -140,23 +136,21 @@ export class CronExpressionInput extends CronComponent {
         }
 
         // Track the selected panel-body
-        this.getElements('.form-check-input').forEach(function (element) {
-            element.onchange = function(e) {
+        this.getElements('.form-check-input').forEach((element) => {
+            element.onchange = function () {
                 var checked = element.checked;
                 if (!checked) {
                     return;
                 }
-                var form = element.closest('.panel-form');
-                form.querySelectorAll('.panel-body').forEach(function (panel) {
+                var formPanel = element.closest('.panel-form').querySelectorAll('.panel-body');
+                formPanel.forEach((panel) => {
                     panel.dataset.focused = false;
                 });
                 var closestPanel = element.closest('.panel').querySelector('.panel-body');
-                console.log(element.closest('.panel').querySelector('.panel-body'));
                 if (closestPanel) {
                     closestPanel.dataset.focused = true;
                 }
-            }
-            // element.onchange();
+            };
         });
     }
     validator(self) {
@@ -236,32 +230,25 @@ export class CronExpressionInput extends CronComponent {
         choices[type - 1].checked = true;
         choices[type - 1].onchange();
 
-
         switch (type) {
             case 1:
                 var freq = this.getTypeFrequency(value);
                 var decrementFreq = 1 - decrement;
-                form.querySelector('*[match=every]').selectedIndex =
-                    parseInt(freq['every']) + decrementFreq;
-                form.querySelector('*[match=start]').selectedIndex =
-                    parseInt(freq['start']) + decrementFreq;
+                form.querySelector('*[match=every]').selectedIndex = parseInt(freq['every']) + decrementFreq;
+                form.querySelector('*[match=start]').selectedIndex = parseInt(freq['start']) + decrementFreq;
                 break;
             case 2:
                 var range = this.getTypeRange(value);
-                form.querySelector('*[match=rangeMin]').selectedIndex =
-                    parseInt(range['min']) - decrement;
-                form.querySelector('*[match=rangeMax]').selectedIndex =
-                    parseInt(range['max']) - decrement;
+                form.querySelector('*[match=rangeMin]').selectedIndex = parseInt(range['min']) - decrement;
+                form.querySelector('*[match=rangeMax]').selectedIndex = parseInt(range['max']) - decrement;
                 break;
             case 3:
                 var cs = this.getTypeChoice(value);
-                form
-                    .querySelectorAll('*[match=specific] input')
-                    .forEach((element, index) => {
-                        if (cs.includes((index + decrement).toString())) {
-                            element.checked = true;
-                        }
-                    });
+                form.querySelectorAll('*[match=specific] input').forEach((element, index) => {
+                    if (cs.includes((index + decrement).toString())) {
+                        element.checked = true;
+                    }
+                });
                 break;
         }
     }
