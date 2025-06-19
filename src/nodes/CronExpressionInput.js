@@ -29,6 +29,7 @@ export class CronExpressionInput extends CronComponent {
         this.showMessage = [true, 'true', ''].includes(this.getAttribute('show-message'));
         this.noInput = [true, 'true', ''].includes(this.getAttribute('no-input'));
         this.defaultTab = this.getAttribute('default-tab') || 'minutes';
+        this.hideOtherTabs = [true, 'true', ''].includes(this.getAttribute('hide-other-tabs'));
         this.color = this.getAttribute('color') || '#d58512';
         this.colorMain = '#' + this.color.replace('#', '');
         this.colorSecond = this.increaseBrightness(this.colorMain, 30);
@@ -136,22 +137,24 @@ export class CronExpressionInput extends CronComponent {
         }
 
         // Track the selected panel-body
-        this.getElements('.form-check-input').forEach((element) => {
-            element.onchange = function () {
-                var checked = element.checked;
-                if (!checked) {
-                    return;
-                }
-                var formPanel = element.closest('.panel-form').querySelectorAll('.panel-body');
-                formPanel.forEach((panel) => {
-                    panel.dataset.focused = false;
-                });
-                var closestPanel = element.closest('.panel').querySelector('.panel-body');
-                if (closestPanel) {
-                    closestPanel.dataset.focused = true;
-                }
-            };
-        });
+        if (this.hideOtherTabs) {
+            this.getElements('.form-check-input').forEach((element) => {
+                element.onchange = function () {
+                    var checked = element.checked;
+                    if (!checked) {
+                        return;
+                    }
+                    var formPanel = element.closest('.panel-form').querySelectorAll('.panel-body');
+                    formPanel.forEach((panel) => {
+                        panel.dataset.focused = false;
+                    });
+                    var closestPanel = element.closest('.panel').querySelector('.panel-body');
+                    if (closestPanel) {
+                        closestPanel.dataset.focused = true;
+                    }
+                };
+            });
+        }
     }
     validator(self) {
         var insideInput = self.querySelector('.cronInsideInput');
@@ -228,7 +231,9 @@ export class CronExpressionInput extends CronComponent {
         var choices = form.querySelectorAll('input[name=choice]');
         choices.forEach((choice) => choice.removeAttribute('checked'));
         choices[type - 1].checked = true;
-        choices[type - 1].onchange();
+        if (this.hideOtherTabs) {
+            choices[type - 1].onchange();
+        }
 
         switch (type) {
             case 1:

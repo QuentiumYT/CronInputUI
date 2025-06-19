@@ -278,6 +278,9 @@ cron-input-ui .panel-group {
 
 cron-input-ui .panel-group > .panel {
     width: 50%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
 }
 
 cron-input-ui .panel {
@@ -488,5 +491,9 @@ cron-input-ui .container .checkmark:after {
 cron-input-ui .panel-body[data-focused="false"] {
     display: none;
 }
+
 cron-input-ui .panel-body[data-focused="true"] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
