@@ -99,7 +99,7 @@ export default [{
     path: path.resolve(),
     filename: '[name].js',
     library: 'inputLang',
-    libraryTarget: 'var',
+    libraryTarget: 'window',
     umdNamedDefine: true,
     globalObject: 'globalThis',
   },
