@@ -1,6 +1,6 @@
 {
   "name": "cron-input-ui",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Input component to generate cron expressions easily and intuitively",
   "type": "module",
   "repository": {

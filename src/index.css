@@ -7,7 +7,7 @@ cron-input-ui * {
 }
 
 cron-input-ui .element {
-    height: 34px;
+    height: 2rem;
     line-height: normal;
     position: relative;
     display: -webkit-box;
@@ -90,8 +90,8 @@ cron-input-ui .form-check-label {
 cron-input-ui .form-control {
     display: block;
     width: 100%;
-    height: 34px;
-    padding: 6px 12px;
+    height: 2rem;
+    padding: 0 12px;
     margin-top: 10px;
     font-size: 14px;
     color: #555;
@@ -116,6 +116,7 @@ cron-input-ui .form-control:focus {
 
 cron-input-ui .form-select {
     margin-top: 0;
+    cursor: pointer;
 }
 
 cron-input-ui .form-checkbox {
@@ -210,7 +211,7 @@ cron-input-ui .nav > li {
 cron-input-ui .nav > li > a {
     position: relative;
     display: block;
-    padding: 10px 15px;
+    padding: 10px 1rem;
 }
 
 cron-input-ui .nav > li > a:focus,
@@ -294,7 +295,7 @@ cron-input-ui .panel {
 cron-input-ui .panel-heading {
     color: #333;
     background-color: #f5f5f5;
-    padding: 10px 15px;
+    padding: 10px 1rem;
     border-bottom: 1px solid #ddd;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -305,7 +306,7 @@ cron-input-ui .panel-body {
     display: -ms-flexbox;
     display: flex;
     gap: 10px;
-    padding: 15px;
+    padding: 1rem;
 }
 
 cron-input-ui .top-action {
@@ -339,15 +340,11 @@ cron-input-ui .modal {
 }
 
 cron-input-ui .modal-dialog {
-    position: relative;
-    width: auto;
-    margin: 10px;
     width: 900px;
-    margin: 30px auto;
+    margin: 2rem auto;
 }
 
 cron-input-ui .modal-content {
-    position: relative;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -357,20 +354,9 @@ cron-input-ui .modal-content {
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
 }
 
-cron-input-ui .modal-header {
-    padding: 15px;
-    height: 0;
-    padding-bottom: 30px;
-}
-
-cron-input-ui .modal-header .top-action {
-    margin-top: -2px;
-}
-
+cron-input-ui .modal-header,
 cron-input-ui .modal-body {
-    position: relative;
-    top: -15px;
-    padding: 0 15px;
+    margin: 1rem;
 }
 
 cron-input-ui .modal-header:after,
@@ -413,6 +399,7 @@ cron-input-ui input[type="radio"] {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 cron-input-ui input[type="radio"]:checked:after {
