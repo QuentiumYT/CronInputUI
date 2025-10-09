@@ -1,9 +1,16 @@
 <h1 align="center" style="font-size: 50px;">Welcome to Cron Input UI library 👋</h1>
 
+<h3 align="center">
+<strong>
+<a href="https://quentiumyt.github.io/CronInputUI/">Check preview website</a>
+&middot;
+<a href="https://www.npmjs.com/package/cron-input-ui">View npm package</a>
+</strong>
+</h3>
+
 ## ✨ Description
 
 **Cron Input UI**: Input component to generate cron expressions easily and intuitively, as in [crontab.guru](https://crontab.guru/).
-
 
 ### 📸 Previews
 
