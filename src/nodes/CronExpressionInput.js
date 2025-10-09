@@ -4,8 +4,7 @@ import { CronComponent } from './CronComponent.js';
 import { CssTemplateGenerator } from '../templates/CssTemplate.js';
 import { CronExpressionInputTemplateGenerator } from '../templates/CronExpressionInputTemplate.js';
 
-import { isValidCron } from 'cron-validator';
-import cronstrue from 'cronstrue/i18n.js';
+import { humanize, isValidCron } from '../utils.js';
 
 var inputLangInternal = {};
 if (typeof inputLang == 'undefined') {
@@ -278,20 +277,13 @@ export class CronExpressionInput extends CronComponent {
         }
         this.getElement('.cronInsideInput').value = value;
 
-        var humanString = this.humanize(value);
+        var humanString = humanize(value, inputLangInternal);
         this.querySelector('.inputCronMsg').value = humanString;
         this.querySelector('.cronInsideInput').setAttribute('title', humanString);
         if (this.showMessage) {
             this.querySelector('.cronExpressionMessage').innerText = humanString;
         }
         this.sendEvent();
-    }
-    humanize(value) {
-        var cronstrueLang = 'en';
-        if (Object.keys(cronstrue.default.locales).includes(inputLangInternal.code)) {
-            cronstrueLang = inputLangInternal.code;
-        }
-        return cronstrue.toString(value, { locale: cronstrueLang });
     }
     modalToggle() {
         this.getElement('.modal').classList.toggle('show');
