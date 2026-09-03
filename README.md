@@ -177,6 +177,15 @@ OR
 * fr (French - Français)
 * es (Spanish - Español)
 * zh_CN (中文 - Chinese)
+* de (German - Deutsch)
+* ja (Japanese - 日本語)
+* zh_TW (中文 - Chinese Traditional)
+* it (Italian - Italiano)
+* nl (Dutch - Nederlands)
+* pl (Polish - Polski)
+* ro (Romanian - Română)
+* sl (Slovenian - Slovenščina)
+* nb (Norwegian Bokmål - Norsk Bokmål)
 
 ## Integration
 
