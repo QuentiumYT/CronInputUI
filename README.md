@@ -76,12 +76,12 @@ A simple way to load the library in a browser is by using the [unpkg](https://un
 "fast, global content delivery network for everything on npm". To use it, include a script tag like this in your file:
 
 ```html
-<script src="https://unpkg.com/cron-input-ui@2.5.0/dist/cron-input-ui.min.js" async></script>
+<script src="https://unpkg.com/cron-input-ui@2.5.2/dist/cron-input-ui.min.js" async></script>
 <!-- Language (Optional) -->
-<script src="https://unpkg.com/cron-input-ui@2.5.0/dist/locales/en.js" async></script>
+<script src="https://unpkg.com/cron-input-ui@2.5.2/dist/locales/en.js" async></script>
 ```
 
-Using the "latest" tag will result in a 302 redirect to the latest version tag so it is recommended to use a specific version tag such as https://unpkg.com/cron-input-ui@2.5.0/dist/cron-input-ui.min.js to avoid this redirect.
+Using the "latest" tag will result in a 302 redirect to the latest version tag so it is recommended to use a specific version tag such as https://unpkg.com/cron-input-ui@2.5.2/dist/cron-input-ui.min.js to avoid this redirect.
 
 ### React
 
@@ -170,7 +170,7 @@ You can pass various attributes to the component to modify its behavior, Example
 ```
 import 'cron-input-ui/dist/locales/es.js';
 OR
-<script src="https://unpkg.com/cron-input-ui@2.5.0/dist/locales/es.js"></script>
+<script src="https://unpkg.com/cron-input-ui@2.5.2/dist/locales/es.js"></script>
 ```
 
 * en (English)
